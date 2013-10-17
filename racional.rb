@@ -31,9 +31,22 @@ class Fraccion
 		#puts result
 	end
 
+	#Funcion para Sumar.
+	def resta(c, d) 
+		result = Fraccion.new(@a*d - @b*c, @b*d)	
+	end
+
 end
 
+=begin
 #Prueba de la suma
 A = Fraccion.new(4,3).suma(1,3)
 puts A
+=end
+#Prueba de la Resta
+B = Fraccion.new(4,5).resta(1,2)
+C = Fraccion.new(5,3).resta(2,3)
+
+puts B
+puts C
 
