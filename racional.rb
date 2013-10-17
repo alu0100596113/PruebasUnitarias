@@ -24,11 +24,16 @@ class Fraccion
 		end	
 	end
 
+	#Funcion para Sumar.
+	def suma(c, d) 
+		result = Fraccion.new(@a*d + @b*c, @b*d)	
+		#puts "Suma:"		
+		#puts result
+	end
 
 end
 
-A = Fraccion.new(2,3)
+#Prueba de la suma
+A = Fraccion.new(4,3).suma(1,3)
 puts A
 
-B = Fraccion.new(2,1)
-puts B
