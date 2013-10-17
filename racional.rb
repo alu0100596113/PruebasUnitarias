@@ -36,17 +36,31 @@ class Fraccion
 		result = Fraccion.new(@a*d - @b*c, @b*d)	
 	end
 
+	#Funcion para Multiplicar
+	def mult(c, d)
+		result = Fraccion.new(@a*c, @b*d)	
+	end
+
+	#Funcion para Dividir
+	def div(c, d)
+		result = Fraccion.new(@a*d , @b*c)
+	end
+
 end
 
 =begin
 #Prueba de la suma
 A = Fraccion.new(4,3).suma(1,3)
 puts A
-=end
+
 #Prueba de la Resta
 B = Fraccion.new(4,5).resta(1,2)
 C = Fraccion.new(5,3).resta(2,3)
-
 puts B
 puts C
+=end
 
+D = Fraccion.new(4,5).mult(1,2)
+E = Fraccion.new(5,3).div(2,3)
+puts D
+puts E
