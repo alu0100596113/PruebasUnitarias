@@ -27,8 +27,6 @@ class Fraccion
 	#Funcion para Sumar.
 	def suma(c, d) 
 		result = Fraccion.new(@a*d + @b*c, @b*d)	
-		#puts "Suma:"		
-		#puts result
 	end
 
 	#Funcion para Sumar.
@@ -52,15 +50,15 @@ end
 #Prueba de la suma
 A = Fraccion.new(4,3).suma(1,3)
 puts A
-
 #Prueba de la Resta
 B = Fraccion.new(4,5).resta(1,2)
 C = Fraccion.new(5,3).resta(2,3)
 puts B
 puts C
-=end
-
+#Prueba de Mul y Div
 D = Fraccion.new(4,5).mult(1,2)
 E = Fraccion.new(5,3).div(2,3)
 puts D
 puts E
+=end
+
