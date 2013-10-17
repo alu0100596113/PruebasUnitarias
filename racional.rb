@@ -5,6 +5,7 @@ require "./gcd.rb"
 class Fraccion
 	attr_reader :a, :b
 	
+	#Constructor
 	def initialize(a, b)
 		mcd = gcd(a, b) 	
     @a = a/mcd
@@ -19,8 +20,20 @@ class Fraccion
 	def to_s
 		if @b == 1 #Si el denominador es 1, solo se imprimer el numerador
 			"#{@a}"
-		else
-			"#{@a}/#{@b}"	
+		elsif @b == -1 #En el caso de que b=-1 y a>0 ó a=-1
+			if @a>0 || @a==-1
+				"#{-@a}"
+			else #Si b=-1 y a es menor que cero, imprime el valor de a
+				"#{@a}"
+			end
+		elsif (@a>0 && @b>0 && @b!=1) #Caso nomal, a y b son mayores que cero, imprime a/b
+			"#{@a}/#{@b}"
+		elsif (@a>0 && @b<0 && @b!=-1) # b es menor que cero, se le cambia el signo a todo para que se imprima: -a/b
+			"#{-@a}/#{-@b}"
+		elsif (@a<0 && @b<0 && @b!=-1) # a y b son menor que cero, se le cambia el signo a todo para que imprima a/b
+			"#{-@a}/#{-@b}"
+		elsif (@a<0 && @b>0 && @b!=1) # a es menor que cero, se imprime igual: -a/b
+			"#{@a}/#{@b}"
 		end	
 	end
 
@@ -29,7 +42,7 @@ class Fraccion
 		result = Fraccion.new(@a*d + @b*c, @b*d)	
 	end
 
-	#Funcion para Sumar.
+	#Funcion para Resta.
 	def resta(c, d) 
 		result = Fraccion.new(@a*d - @b*c, @b*d)	
 	end
@@ -45,20 +58,4 @@ class Fraccion
 	end
 
 end
-
-=begin
-#Prueba de la suma
-A = Fraccion.new(4,3).suma(1,3)
-puts A
-#Prueba de la Resta
-B = Fraccion.new(4,5).resta(1,2)
-C = Fraccion.new(5,3).resta(2,3)
-puts B
-puts C
-#Prueba de Mul y Div
-D = Fraccion.new(4,5).mult(1,2)
-E = Fraccion.new(5,3).div(2,3)
-puts D
-puts E
-=end
 
